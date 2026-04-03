@@ -11,9 +11,12 @@
 ## Installation
 
 ```bash
-# Clone the repository
-git clone https://github.com/chichou/grapefruit.git
+# Clone the repository with submodules
+git clone --recurse-submodules https://github.com/chichou/grapefruit.git
 cd grapefruit
+
+# If you already cloned without submodules, run this once instead
+git submodule update --init --recursive
 
 # Build r2hermes.wasm first (requires wasi-sdk)
 bun externals/radare/r2hermes.wasm/build.ts
@@ -21,6 +24,8 @@ bun externals/radare/r2hermes.wasm/build.ts
 # Install all dependencies (root + agent + gui)
 bun install
 ```
+
+`externals/radare/r2hermes` is a Git submodule and must be present before building `r2hermes.wasm`.
 
 Each workspace has its own `package.json`. The root `prepare` script handles building the agent and GUI automatically after install.
 
