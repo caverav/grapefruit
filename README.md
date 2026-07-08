@@ -36,6 +36,14 @@ npx igf
 
 Note: Bun is the primary development environment and the prebuilt single binaries are Bun-based, but the npm package is built for Node.js. Do not use `bunx` to run it.
 
+**Nix (flakes)**
+
+```sh
+nix run github:ChiChou/Grapefruit     # run the CLI directly
+nix build github:ChiChou/Grapefruit   # -> ./result/bin/igf
+nix develop                           # dev shell: bun, node, python, git
+```
+
 ## Usage
 
 ```
